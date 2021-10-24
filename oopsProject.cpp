@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<fstream>
 using namespace std;
 
 class Definition{
@@ -16,7 +17,15 @@ class Encapsulation:public Definition{
   string encDef;
  public:
  Encapsulation(){
-   encDef="def_of_enc";
+   encDef="";
+   string textLine;
+   ifstream encFile("./fileIOTesting/encapsulation.txt");
+
+   while(getline(encFile, textLine))
+   {
+     encDef += textLine;
+     encDef += "\n";
+   }
   setDefinition(encDef);
  }
 
